@@ -1,1 +1,55 @@
-<p>training-form works!</p>
+<!-- training.component.html -->
+
+<div class="container">
+    <h2>Add Training</h2>
+    <form [formGroup]="trainingForm" (ngSubmit)="submitTrainingForm()">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" formControlName="title" />
+        <div *ngIf="trainingForm.get('title').hasError('required') && trainingForm.get('title').touched">
+          Title is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="hours">Hours</label>
+        <input type="text" class="form-control" id="hours" formControlName="hours" />
+        <div *ngIf="trainingForm.get('hours').hasError('required') && trainingForm.get('hours').touched">
+          Hours is required.
+        </div>
+        <div *ngIf="trainingForm.get('hours').hasError('pattern') && trainingForm.get('hours').touched">
+          Invalid hours format.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="cost">Cost</label>
+        <input type="text" class="form-control" id="cost" formControlName="cost" />
+        <div *ngIf="trainingForm.get('cost').hasError('required') && trainingForm.get('cost').touched">
+          Cost is required.
+        </div>
+        <div *ngIf="trainingForm.get('cost').hasError('pattern') && trainingForm.get('cost').touched">
+          Invalid cost format.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="objectives">Objectives</label>
+        <textarea class="form-control" id="objectives" formControlName="objectives"></textarea>
+        <div *ngIf="trainingForm.get('objectives').hasError('required') && trainingForm.get('objectives').touched">
+          Objectives is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="detailedProgram">Detailed Program</label>
+        <textarea class="form-control" id="detailedProgram" formControlName="detailedProgram"></textarea>
+        <div *ngIf="trainingForm.get('detailedProgram').hasError('required') && trainingForm.get('detailedProgram').touched">
+          Detailed Program is required.
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="trainingForm.invalid">Add Training</button>
+    </form>
+  </div>
+  
