@@ -25,6 +25,13 @@ export class JwtService {
     })
   }
 
+  trainings_add(trainingRequest: any): Observable<any> {
+    return this.http.post(BASE_URL + 'api/trainings/add', trainingRequest, {
+      headers: this.createAuhtorizationHeader()
+    });
+  }
+
+
   private createAuhtorizationHeader() {
     const jwtToken = localStorage.getItem('jwt');
     if (jwtToken) {
