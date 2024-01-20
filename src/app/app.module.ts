@@ -10,6 +10,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TrainingFormComponent } from './components/training-form/training-form.component';
+import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';  // Import the UserDashboardComponent
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TrainingFormComponent } from './components/training-form/training-form.
     RegisterComponent,
     LoginComponent,
     DashboardComponent,
-    TrainingFormComponent
+    TrainingFormComponent,
+    UserDashboardComponent
   ],
   imports: [
     BrowserModule,

@@ -35,12 +35,14 @@ export class LoginComponent implements OnInit {
 
           // Extract roles from the JWT token
           const roles = this.service.getRolesFromToken(jwtToken);
+          console.log(roles)
 
           // Redirect based on roles
           if (roles.includes('ROLE_ADMIN')) {
             this.router.navigateByUrl("/dashboard");
           } else if (roles.includes('ROLE_USER')) {
-            console.warn("the user ");
+            this.router.navigateByUrl("/user-dashboard");
+
           } else {
             // Default redirect if role not recognized
             console.warn("Unknown role. Unable to determine the dashboard.");
