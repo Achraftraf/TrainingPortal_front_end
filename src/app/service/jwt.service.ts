@@ -11,6 +11,26 @@ export class JwtService {
 
   constructor(private http: HttpClient) { }
 
+  getRolesFromToken(jwtToken: string): string[] {
+    const decodedToken = this.decodeToken(jwtToken);
+    if (decodedToken && decodedToken.roles) {
+      return decodedToken.roles;
+    } else {
+      return [];
+    }
+  }
+  private decodeToken(jwtToken: string): any {
+    try {
+      const base64Url = jwtToken.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const decoded = JSON.parse(atob(base64));
+      return decoded;
+    } catch (error) {
+      console.error('Error decoding JWT token', error);
+      return null;
+    }
+  }
+
   register(signRequest: any): Observable<any> {
     return this.http.post(BASE_URL + 'signup', signRequest)
   }
