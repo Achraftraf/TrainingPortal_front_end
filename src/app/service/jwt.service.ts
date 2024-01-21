@@ -52,6 +52,12 @@ export class JwtService {
   }
 
 
+  addFormateur(formateurRequest: any): Observable<any> {
+    return this.http.post(BASE_URL + 'admin/trainer', formateurRequest, {
+      headers: this.createAuhtorizationHeader()
+    });
+  }
+
   private createAuhtorizationHeader() {
     const jwtToken = localStorage.getItem('jwt');
     if (jwtToken) {
@@ -64,5 +70,7 @@ export class JwtService {
     }
     return null;
   }
+
+  
 
 }

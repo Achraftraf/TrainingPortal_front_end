@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TrainingFormComponent } from './components/training-form/training-form.component';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
+import { FormateurComponent } from './components/formateur/formateur.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -14,8 +15,9 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   // { path: 'training', component: TrainingFormComponent },
   { path: 'user-dashboard', component: UserDashboardComponent },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'formateur', component: FormateurComponent },
   { path: 'training-form', component: TrainingFormComponent },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 ];
 
 @NgModule({

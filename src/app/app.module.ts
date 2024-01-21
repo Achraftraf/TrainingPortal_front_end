@@ -11,6 +11,9 @@ import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TrainingFormComponent } from './components/training-form/training-form.component';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';  // Import the UserDashboardComponent
+import { FormateurComponent } from './components/formateur/formateur.component';
+
+
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { UserDashboardComponent } from './components/user-dashboard/user-dashboa
     LoginComponent,
     DashboardComponent,
     TrainingFormComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    FormateurComponent
   ],
   imports: [
     BrowserModule,
