@@ -51,6 +51,17 @@ export class JwtService {
     });
   }
 
+  Entreprise_add(entrepriseRequest: any): Observable<any> {
+    return this.http.post(BASE_URL + 'api/admin/entreprises/add', entrepriseRequest, {
+      headers: this.createAuhtorizationHeader()
+    });
+  }
+
+  getEntreprises(): Observable<any> {
+    return this.http.get(BASE_URL + 'api/admin/entreprises/all', {
+      headers: this.createAuhtorizationHeader()
+    });
+  }
 
   addFormateur(formateurRequest: any): Observable<any> {
     return this.http.post(BASE_URL + 'admin/trainer', formateurRequest, {
