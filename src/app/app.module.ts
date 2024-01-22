@@ -10,6 +10,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TrainingFormComponent } from './components/training-form/training-form.component';
+import { EntrepriseFormComponent } from './components/entreprise-form/entreprise-form.component';
+import { EntrepriseListComponent } from './components/entreprise-list/entreprise-list.component';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { TrainingFormComponent } from './components/training-form/training-form.
     RegisterComponent,
     LoginComponent,
     DashboardComponent,
-    TrainingFormComponent
+    TrainingFormComponent,
+    EntrepriseFormComponent,
+    EntrepriseListComponent,
   ],
   imports: [
     BrowserModule,
