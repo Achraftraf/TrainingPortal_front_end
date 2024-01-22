@@ -29,7 +29,7 @@ import { EntrepriseListComponent } from './components/entreprise-list/entreprise
     TrainingFormComponent,
 
     UserDashboardComponent,
-    FormateurComponent
+    FormateurComponent,
 
     EntrepriseFormComponent,
     EntrepriseListComponent,
