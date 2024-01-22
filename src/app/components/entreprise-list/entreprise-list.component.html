@@ -1,0 +1,25 @@
+<!-- entreprise-list.component.html -->
+
+<div class="container">
+    <h2>Liste des entreprises</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Téléphone</th>
+                <th>URL</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let entreprise of entreprises">
+                <td>{{ entreprise.nom }}</td>
+                <td>{{ entreprise.adresse }}</td>
+                <td>{{ entreprise.telephone }}</td>
+                <td>{{ entreprise.url }}</td>
+                <td>{{ entreprise.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

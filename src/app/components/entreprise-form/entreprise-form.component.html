@@ -1,0 +1,45 @@
+<!-- entreprise.component.html -->
+
+<div class="container">
+    <h2>Ajouter une entreprise</h2>
+    <form [formGroup]="entrepriseForm" (ngSubmit)="submitEntrepriseForm()">
+        <div class="form-group">
+            <label for="nom">Nom de l'entreprise</label>
+            <input type="text" class="form-control" id="nom" formControlName="nom" />
+            <div *ngIf="entrepriseForm.get('nom').hasError('required') && entrepriseForm.get('nom').touched">
+                Nom de l'entreprise est requis.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="adresse">Adresse de l'entreprise</label>
+            <input type="text" class="form-control" id="adresse" formControlName="adresse" />
+            <div *ngIf="entrepriseForm.get('adresse').hasError('required') && entrepriseForm.get('adresse').touched">
+                Adresse de l'entreprise est requis.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="telephone">Téléphone de l'entreprise</label>
+            <input type="number" class="form-control" id="telephone" formControlName="telephone" />
+            <div
+                *ngIf="entrepriseForm.get('telephone').hasError('required') && entrepriseForm.get('telephone').touched">
+                Téléphone de l'entreprise est requis.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="url">URL de l'entreprise</label>
+            <input type="text" class="form-control" id="url" formControlName="url" />
+            <!-- Add any additional validation messages if needed -->
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email de l'entreprise</label>
+            <input type="text" class="form-control" id="email" formControlName="email" />
+            <!-- Add any additional validation messages if needed -->
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="entrepriseForm.invalid">Ajouter Entreprise</button>
+    </form>
+</div>
