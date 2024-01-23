@@ -10,6 +10,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TrainingFormComponent } from './components/training-form/training-form.component';
+import { TrainingListComponent } from './components/training-list/training-list.component';
 
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';  // Import the UserDashboardComponent
 import { FormateurComponent } from './components/formateur/formateur.component';
@@ -26,13 +27,16 @@ import { EntrepriseListComponent } from './components/entreprise-list/entreprise
     RegisterComponent,
     LoginComponent,
     DashboardComponent,
+    
     TrainingFormComponent,
+    TrainingListComponent,
 
     UserDashboardComponent,
     FormateurComponent,
 
     EntrepriseFormComponent,
     EntrepriseListComponent,
+
 
   ],
   imports: [

@@ -9,6 +9,7 @@ const BASE_URL = ["http://localhost:8080/"]
 })
 export class JwtService {
 
+
   constructor(private http: HttpClient) { }
 
   getRolesFromToken(jwtToken: string): string[] {
@@ -63,6 +64,11 @@ export class JwtService {
     });
   }
 
+  getTrainings(): Observable<any> {
+    return this.http.get(BASE_URL + 'api/trainings/all', {
+      headers: this.createAuhtorizationHeader()
+    });
+  }
   addFormateur(formateurRequest: any): Observable<any> {
     return this.http.post(BASE_URL + 'admin/trainer', formateurRequest, {
       headers: this.createAuhtorizationHeader()
@@ -82,6 +88,13 @@ export class JwtService {
     return null;
   }
 
+
+  logDecodedToken() {
+    const jwtToken = localStorage.getItem('jwt');
+    console.log('JWT Token:', jwtToken);
+    console.log('Decoded Token:', this.decodeToken(jwtToken));
+  }
+  
   
 
 }

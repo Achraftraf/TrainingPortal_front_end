@@ -1,0 +1,23 @@
+<div class="container">
+    <h2>List of Trainings</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Hours</th>
+                <th>Cost</th>
+                <th>Objectives</th>
+                <th>Detailed Program</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let training of trainings">
+                <td>{{ training.title }}</td>
+                <td>{{ training.hours }}</td>
+                <td>{{ training.cost }}</td>
+                <td>{{ training.objectives }}</td>
+                <td>{{ training.detailedProgram }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -12,6 +12,7 @@ import { FormateurComponent } from './components/formateur/formateur.component';
 
 import { EntrepriseFormComponent } from './components/entreprise-form/entreprise-form.component';
 import { EntrepriseListComponent } from './components/entreprise-list/entreprise-list.component';
+import { TrainingListComponent } from './components/training-list/training-list.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'user-dashboard', component: UserDashboardComponent },
   { path: 'formateur', component: FormateurComponent },
   { path: 'training-form', component: TrainingFormComponent },
+  { path: 'training-list', component: TrainingListComponent, },
 
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 
