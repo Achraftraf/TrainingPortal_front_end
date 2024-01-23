@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -69,6 +69,28 @@ export class JwtService {
       headers: this.createAuhtorizationHeader()
     });
   }
+
+  getFilteredTrainings(category: string, city: string, date: string): Observable<any> {
+    // Create query parameters for filtering
+    let params = new HttpParams();
+    if (category) {
+      params = params.set('category', category);
+    }
+    if (city) {
+      params = params.set('city', city);
+    }
+    if (date) {
+      params = params.set('date', date);
+    }
+
+    // Make the API call with query parameters
+    return this.http.get(BASE_URL + 'api/trainings/filtered', {
+      headers: this.createAuhtorizationHeader(),
+      params: params,
+    });
+  }
+
+
   addFormateur(formateurRequest: any): Observable<any> {
     return this.http.post(BASE_URL + 'admin/trainer', formateurRequest, {
       headers: this.createAuhtorizationHeader()

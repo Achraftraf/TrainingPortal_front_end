@@ -1,5 +1,20 @@
 <div class="container">
     <h2>List of Trainings</h2>
+    
+    <!-- Add a form for filtering -->
+    <form (submit)="filterTrainings()">
+        <label for="category">Category:</label>
+        <input type="text" id="category" [(ngModel)]="filterCategory" name="category">
+
+        <label for="city">City:</label>
+        <input type="text" id="city" [(ngModel)]="filterCity" name="city">
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" [(ngModel)]="filterDate" name="date">
+
+        <button type="submit">Filter</button>
+    </form>
+
     <table class="table table-striped">
         <thead>
             <tr>
@@ -8,6 +23,9 @@
                 <th>Cost</th>
                 <th>Objectives</th>
                 <th>Detailed Program</th>
+                <th>Category</th>
+                <th>City</th>
+                <th>Date</th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +35,9 @@
                 <td>{{ training.cost }}</td>
                 <td>{{ training.objectives }}</td>
                 <td>{{ training.detailedProgram }}</td>
+                <td>{{ training.category }}</td>
+                <td>{{ training.city }}</td>
+                <td>{{ training.date }}</td>
             </tr>
         </tbody>
     </table>

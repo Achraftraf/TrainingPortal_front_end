@@ -1,5 +1,3 @@
-// training-list.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { JwtService } from 'src/app/service/jwt.service';
 
@@ -10,13 +8,32 @@ import { JwtService } from 'src/app/service/jwt.service';
 })
 export class TrainingListComponent implements OnInit {
 
-  trainings: any[] = []; // Assuming your training data structure, update accordingly
+  trainings: any[] = [];
+  filterCategory: string = '';
+  filterCity: string = '';
+  filterDate: string = '';
 
   constructor(private jwtService: JwtService) { }
 
   ngOnInit(): void {
-    // Fetch the list of trainings from the service upon component initialization
+    this.fetchTrainings();
+  }
+
+  fetchTrainings() {
     this.jwtService.getTrainings().subscribe(
+      (data: any) => {
+        this.trainings = data;
+      },
+      error => {
+        console.error(error);
+        // Handle error
+      }
+    );
+  }
+
+  filterTrainings() {
+    // Call the service method with filter criteria
+    this.jwtService.getFilteredTrainings(this.filterCategory, this.filterCity, this.filterDate).subscribe(
       (data: any) => {
         this.trainings = data;
       },

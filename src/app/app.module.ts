@@ -1,5 +1,5 @@
 // app.module.ts
-
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -27,7 +27,7 @@ import { EntrepriseListComponent } from './components/entreprise-list/entreprise
     RegisterComponent,
     LoginComponent,
     DashboardComponent,
-    
+
     TrainingFormComponent,
     TrainingListComponent,
 
@@ -43,7 +43,8 @@ import { EntrepriseListComponent } from './components/entreprise-list/entreprise
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
