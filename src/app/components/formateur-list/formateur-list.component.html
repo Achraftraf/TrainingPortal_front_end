@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>Formateurs List</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Skills</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let formateur of formateurs">
+                <td>{{ formateur.name }}</td>
+                <td>{{ formateur.email }}</td>
+                <td>{{ formateur.skills }}</td>
+                <td>
+                    <button (click)="acceptFormateur(formateur.id)" class="btn btn-success">Accept</button>
+                    <button (click)="rejectFormateur(formateur.id)" class="btn btn-danger">Reject</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
