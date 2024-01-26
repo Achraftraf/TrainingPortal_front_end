@@ -12,6 +12,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TrainingFormComponent } from './components/training-form/training-form.component';
 import { EntrepriseFormComponent } from './components/entreprise-form/entreprise-form.component';
 import { EntrepriseListComponent } from './components/entreprise-list/entreprise-list.component';
+import { FormateurInscriptionComponent } from './components/formateur-inscription/formateur-inscription.component';
+import { FormateurListComponent } from './components/formateur-list/formateur-list.component';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { EntrepriseListComponent } from './components/entreprise-list/entreprise
     TrainingFormComponent,
     EntrepriseFormComponent,
     EntrepriseListComponent,
+    FormateurInscriptionComponent,
+    FormateurListComponent
   ],
   imports: [
     BrowserModule,
