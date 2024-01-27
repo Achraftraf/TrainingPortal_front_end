@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Trainer, Training, TrainingSchedule } from '../components/planification/model';
 
 const BASE_URL = ["http://localhost:8080/"]
 
@@ -8,6 +9,33 @@ const BASE_URL = ["http://localhost:8080/"]
   providedIn: 'root'
 })
 export class JwtService {
+  getTrainerDetails(trainerId: number): Observable<Training> {
+    return this.http.get<Training>(`${BASE_URL}api/trainers/${trainerId}`, {
+      headers: this.createAuhtorizationHeader()
+    });
+  }
+  getTrainingDetails(trainingId: number): Observable<Training> {
+    return this.http.get<Training>(`${BASE_URL}api/trainings/${trainingId}`, {
+      headers: this.createAuhtorizationHeader()
+    });
+  }  
+  getTrainingSchedules(): Observable<TrainingSchedule[]> {
+    return this.http.get<TrainingSchedule[]>(BASE_URL + 'api/training-schedules/all', {
+      headers: this.createAuhtorizationHeader()
+    });
+  }
+
+
+
+  getTrainers(): Observable<Trainer[]> {
+    return this.http.get<Trainer[]>(BASE_URL + 'formateurs', {});
+  }
+  
+  getTrainings(): Observable<Training[]> {
+    return this.http.get<Training[]>(BASE_URL + 'api/trainings/all', {
+      headers: this.createAuhtorizationHeader()
+    });
+  }
 
 
   constructor(private http: HttpClient) { }
@@ -64,11 +92,7 @@ export class JwtService {
     });
   }
 
-  getTrainings(): Observable<any> {
-    return this.http.get(BASE_URL + 'api/trainings/all', {
-      headers: this.createAuhtorizationHeader()
-    });
-  }
+
 
   getFilteredTrainings(category: string, city: string, date: string): Observable<any> {
     // Create query parameters for filtering
@@ -117,6 +141,11 @@ export class JwtService {
     console.log('Decoded Token:', this.decodeToken(jwtToken));
   }
   
+  scheduleTraining(trainingRequest: any): Observable<any> {
+    return this.http.post(BASE_URL + 'api/training-schedules/schedule', trainingRequest, {
+      headers: this.createAuhtorizationHeader()
+    });
+  }
   
 
 }

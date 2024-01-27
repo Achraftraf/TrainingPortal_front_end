@@ -1,7 +1,7 @@
 // app.module.ts
 
 
-
+import { MatDialogModule } from '@angular/material/dialog'; 
 import { PlanificationComponent } from './components/planification/planification.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { FormsModule } from '@angular/forms';
@@ -19,10 +19,12 @@ import { TrainingListComponent } from './components/training-list/training-list.
 
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';  // Import the UserDashboardComponent
 import { FormateurComponent } from './components/formateur/formateur.component';
+import { DateSelectionDialogComponent  } from './components/date-selection-dialog/date-selection-dialog.component';
 
 
 import { EntrepriseFormComponent } from './components/entreprise-form/entreprise-form.component';
 import { EntrepriseListComponent } from './components/entreprise-list/entreprise-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { EntrepriseListComponent } from './components/entreprise-list/entreprise
     EntrepriseListComponent,
 
     PlanificationComponent,
+
+    DateSelectionDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,9 @@ import { EntrepriseListComponent } from './components/entreprise-list/entreprise
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    FullCalendarModule
+    FullCalendarModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
