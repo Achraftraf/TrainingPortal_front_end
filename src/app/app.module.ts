@@ -1,4 +1,9 @@
 // app.module.ts
+
+
+
+import { PlanificationComponent } from './components/planification/planification.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,8 +24,6 @@ import { FormateurComponent } from './components/formateur/formateur.component';
 import { EntrepriseFormComponent } from './components/entreprise-form/entreprise-form.component';
 import { EntrepriseListComponent } from './components/entreprise-list/entreprise-list.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +40,7 @@ import { EntrepriseListComponent } from './components/entreprise-list/entreprise
     EntrepriseFormComponent,
     EntrepriseListComponent,
 
-
+    PlanificationComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import { EntrepriseListComponent } from './components/entreprise-list/entreprise
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    FullCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

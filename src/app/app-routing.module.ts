@@ -13,6 +13,7 @@ import { FormateurComponent } from './components/formateur/formateur.component';
 import { EntrepriseFormComponent } from './components/entreprise-form/entreprise-form.component';
 import { EntrepriseListComponent } from './components/entreprise-list/entreprise-list.component';
 import { TrainingListComponent } from './components/training-list/training-list.component';
+import { PlanificationComponent } from './components/planification/planification.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
 
   { path: 'entreprise-form', component: EntrepriseFormComponent },
   { path: 'entreprise-list', component: EntrepriseListComponent },
+  { path: 'planificationt', component: PlanificationComponent },
 
 ];
 
