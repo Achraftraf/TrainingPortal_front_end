@@ -121,10 +121,7 @@ export class PlanificationComponent implements MyInterface  {
   }
 
   fetchDataAndScheduleTraining(selectedDate: string) {
-    // Fetch trainers, training, and enterprise data using your service methods
-    // For simplicity, I'm assuming you have methods like getTrainers(), getTrainings(), etc.
 
-    // You need to adapt this code based on your actual service methods
     const trainersObservable = this.jwtService.getTrainers();
     const trainingsObservable = this.jwtService.getTrainings();
 
@@ -159,9 +156,11 @@ export class PlanificationComponent implements MyInterface  {
   
     const scheduleRequest = {
       date: selectedDate,
-      trainer: { id: this.selectedTrainer.id, /* add other properties if needed */ },
+      // trainer: { id: this.selectedTrainer.id},
+      trainer: { id: 1},
       enterprise: { id: 1 }, // Replace with the actual enterprise data
-      training: { id: this.selectedTraining.id, /* add other properties if needed */ },
+      // training: { id: this.selectedTraining.id},
+      training: { id: 1},
     };
   
     this.jwtService.scheduleTraining(scheduleRequest).subscribe(
