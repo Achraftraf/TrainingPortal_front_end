@@ -12,9 +12,14 @@ import { FormateurComponent } from './components/formateur/formateur.component';
 
 import { EntrepriseFormComponent } from './components/entreprise-form/entreprise-form.component';
 import { EntrepriseListComponent } from './components/entreprise-list/entreprise-list.component';
+
+import { FormateurInscriptionComponent } from './components/formateur-inscription/formateur-inscription.component';
+import { FormateurListComponent } from './components/formateur-list/formateur-list.component';
+
 import { TrainingListComponent } from './components/training-list/training-list.component';
 import { PlanificationComponent } from './components/planification/planification.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
+
 
 
 const routes: Routes = [
@@ -31,8 +36,13 @@ const routes: Routes = [
 
   { path: 'entreprise-form', component: EntrepriseFormComponent },
   { path: 'entreprise-list', component: EntrepriseListComponent },
+
+  { path: 'formateur-inscription', component: FormateurInscriptionComponent },
+  { path: 'formateur-list', component: FormateurListComponent },
+
   { path: 'planificationt', component: PlanificationComponent },  
   { path: 'accueil', component: AccueilComponent },
+
 
 ];
 

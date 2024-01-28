@@ -71,27 +71,52 @@ export class JwtService {
 
   hello(): Observable<any> {
     return this.http.get(BASE_URL + 'api/hello', {
-      headers: this.createAuhtorizationHeader()
+      headers: this.createAuthorizationHeader()
     })
   }
 
   trainings_add(trainingRequest: any): Observable<any> {
     return this.http.post(BASE_URL + 'api/trainings/add', trainingRequest, {
-      headers: this.createAuhtorizationHeader()
+      headers: this.createAuthorizationHeader()
     });
   }
 
   Entreprise_add(entrepriseRequest: any): Observable<any> {
     return this.http.post(BASE_URL + 'api/admin/entreprises/add', entrepriseRequest, {
-      headers: this.createAuhtorizationHeader()
+      headers: this.createAuthorizationHeader()
     });
   }
 
   getEntreprises(): Observable<any> {
     return this.http.get(BASE_URL + 'api/admin/entreprises/all', {
-      headers: this.createAuhtorizationHeader()
+      headers: this.createAuthorizationHeader()
     });
   }
+
+
+  getFormateurs(): Observable<any> {
+    return this.http.get(BASE_URL + 'api/fuser/all', {
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
+  inscrireFormateur(formateurRequest: any): Observable<any> {
+    return this.http.post(BASE_URL + 'inscrire', formateurRequest);
+  }
+
+  acceptFormateur(formateurId: number): Observable<any> {
+    return this.http.post(BASE_URL + `/api/fuser/accepter/${formateurId}`, null, {
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
+  rejectFormateur(formateurId: number): Observable<any> {
+    return this.http.post(BASE_URL + `/api/fuser/refuser/${formateurId}`, null, {
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
+//   private createAuthorizationHeader(): HttpHeaders {
 
 
 
@@ -126,14 +151,14 @@ export class JwtService {
     const jwtToken = localStorage.getItem('jwt');
     if (jwtToken) {
       console.log("JWT token found in local storage", jwtToken);
-      return new HttpHeaders().set(
-        "Authorization", "Bearer " + jwtToken
-      )
+      return new HttpHeaders().set("Authorization", "Bearer " + jwtToken);
     } else {
       console.log("JWT token not found in local storage");
     }
     return null;
   }
+  
+
 
 
   logDecodedToken() {

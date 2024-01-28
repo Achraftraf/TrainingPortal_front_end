@@ -28,11 +28,16 @@ import { MatSelectModule } from '@angular/material/select';
 import { AccueilComponent } from './components/accueil/accueil.component';
 import { EntrepriseFormComponent } from './components/entreprise-form/entreprise-form.component';
 import { EntrepriseListComponent } from './components/entreprise-list/entreprise-list.component';
+
+import { FormateurInscriptionComponent } from './components/formateur-inscription/formateur-inscription.component';
+import { FormateurListComponent } from './components/formateur-list/formateur-list.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav'; 
 import { MatListModule } from '@angular/material/list';
+
 
 
 @NgModule({
@@ -51,11 +56,16 @@ import { MatListModule } from '@angular/material/list';
     EntrepriseFormComponent,
     EntrepriseListComponent,
 
+    FormateurInscriptionComponent,
+    FormateurListComponent
+
+
     PlanificationComponent,
  
     DateSelectionDialogComponent,
     AccueilComponent,
     PopupComponent,
+
   ],
   imports: [
     BrowserModule,
