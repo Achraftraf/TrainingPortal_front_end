@@ -14,6 +14,7 @@ import { EntrepriseFormComponent } from './components/entreprise-form/entreprise
 import { EntrepriseListComponent } from './components/entreprise-list/entreprise-list.component';
 import { TrainingListComponent } from './components/training-list/training-list.component';
 import { PlanificationComponent } from './components/planification/planification.component';
+import { AccueilComponent } from './components/accueil/accueil.component';
 
 
 const routes: Routes = [
@@ -26,11 +27,12 @@ const routes: Routes = [
   { path: 'training-form', component: TrainingFormComponent },
   { path: 'training-list', component: TrainingListComponent, },
 
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
 
   { path: 'entreprise-form', component: EntrepriseFormComponent },
   { path: 'entreprise-list', component: EntrepriseListComponent },
   { path: 'planificationt', component: PlanificationComponent },
+  { path: 'accueil', component: AccueilComponent },
 
 ];
 

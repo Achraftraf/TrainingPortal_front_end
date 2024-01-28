@@ -1,0 +1,15 @@
+/* popup.component.scss and date-selection-dialog.component.scss */
+
+@keyframes fadeInOut {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  div {
+    animation: fadeInOut 0.5s ease-in-out; /* Adjust the duration as needed, e.g., 0.5s for a slower animation */
+  }
+  

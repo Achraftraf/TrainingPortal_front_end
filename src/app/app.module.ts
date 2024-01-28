@@ -1,6 +1,6 @@
 // app.module.ts
 
-
+import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog'; 
 import { PlanificationComponent } from './components/planification/planification.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
@@ -20,8 +20,12 @@ import { TrainingListComponent } from './components/training-list/training-list.
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';  // Import the UserDashboardComponent
 import { FormateurComponent } from './components/formateur/formateur.component';
 import { DateSelectionDialogComponent  } from './components/date-selection-dialog/date-selection-dialog.component';
+import { PopupComponent  } from './components/popup/popup.component';
 
 
+import { MatSelectModule } from '@angular/material/select'; 
+
+import { AccueilComponent } from './components/accueil/accueil.component';
 import { EntrepriseFormComponent } from './components/entreprise-form/entreprise-form.component';
 import { EntrepriseListComponent } from './components/entreprise-list/entreprise-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -43,8 +47,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EntrepriseListComponent,
 
     PlanificationComponent,
-
+ 
     DateSelectionDialogComponent,
+    AccueilComponent,
+    PopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +61,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FullCalendarModule,
     MatDialogModule,
     BrowserAnimationsModule,
+
+    MatSelectModule, // Add MatSelectModule here
+    FormsModule, // 
+    MatButtonModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

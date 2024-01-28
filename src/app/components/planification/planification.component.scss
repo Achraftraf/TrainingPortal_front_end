@@ -1,0 +1,33 @@
+// YourComponent.scss
+
+// General styling for the FullCalendar component
+#fullcalendar {
+    width: 100%;
+    height: 600px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(53, 4, 4, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  // Styling for the event content
+  .event-content {
+    font-weight: bold;
+  }
+  
+  // Styling for the update buttons
+  button {
+    margin: 5px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  // Hover effect for the buttons
+  button:hover {
+    background-color: #0056b3;
+  }
+  
