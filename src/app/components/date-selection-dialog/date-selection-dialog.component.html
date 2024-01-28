@@ -1,0 +1,25 @@
+<!-- date-selection-dialog.component.html -->
+<div [@fadeInOut]>
+    <h2>{{ data.title }}</h2>
+    <div>
+      <mat-form-field>
+        <mat-label>Trainer:</mat-label>
+        <mat-select [(ngModel)]="selectedTrainerId" name="trainer">
+          <mat-option *ngFor="let trainer of data.trainers" [value]="trainer.id">{{ trainer.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Training:</mat-label>
+        <mat-select [(ngModel)]="selectedTrainingTitle" name="training">
+          <mat-option *ngFor="let training of data.trainings" [value]="training.title">{{ training.title }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <button mat-raised-button color="primary" (click)="save()">Save</button>
+      <button mat-raised-button (click)="close()">Cancel</button>
+    </div>
+  </div>
+  
