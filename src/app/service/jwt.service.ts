@@ -105,16 +105,17 @@ export class JwtService {
   }
 
   acceptFormateur(formateurId: number): Observable<any> {
-    return this.http.post(BASE_URL + `/api/fuser/accepter/${formateurId}`, null, {
+    return this.http.put(BASE_URL + `api/fuser/accepter/${formateurId}`, null, {
       headers: this.createAuhtorizationHeader()
     });
   }
 
   rejectFormateur(formateurId: number): Observable<any> {
-    return this.http.post(BASE_URL + `/api/fuser/refuser/${formateurId}`, null, {
+    return this.http.delete(BASE_URL + `api/fuser/refuser/${formateurId}`, {
       headers: this.createAuhtorizationHeader()
     });
   }
+  
 
 //   private createAuthorizationHeader(): HttpHeaders {
 
