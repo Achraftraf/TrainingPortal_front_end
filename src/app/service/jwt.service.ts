@@ -71,32 +71,32 @@ export class JwtService {
 
   hello(): Observable<any> {
     return this.http.get(BASE_URL + 'api/hello', {
-      headers: this.createAuthorizationHeader()
+      headers: this.createAuhtorizationHeader()
     })
   }
 
   trainings_add(trainingRequest: any): Observable<any> {
     return this.http.post(BASE_URL + 'api/trainings/add', trainingRequest, {
-      headers: this.createAuthorizationHeader()
+      headers: this.createAuhtorizationHeader()
     });
   }
 
   Entreprise_add(entrepriseRequest: any): Observable<any> {
     return this.http.post(BASE_URL + 'api/admin/entreprises/add', entrepriseRequest, {
-      headers: this.createAuthorizationHeader()
+      headers: this.createAuhtorizationHeader()
     });
   }
 
   getEntreprises(): Observable<any> {
     return this.http.get(BASE_URL + 'api/admin/entreprises/all', {
-      headers: this.createAuthorizationHeader()
+      headers: this.createAuhtorizationHeader()
     });
   }
 
 
   getFormateurs(): Observable<any> {
     return this.http.get(BASE_URL + 'api/fuser/all', {
-      headers: this.createAuthorizationHeader()
+      headers: this.createAuhtorizationHeader()
     });
   }
 
@@ -106,13 +106,13 @@ export class JwtService {
 
   acceptFormateur(formateurId: number): Observable<any> {
     return this.http.post(BASE_URL + `/api/fuser/accepter/${formateurId}`, null, {
-      headers: this.createAuthorizationHeader()
+      headers: this.createAuhtorizationHeader()
     });
   }
 
   rejectFormateur(formateurId: number): Observable<any> {
     return this.http.post(BASE_URL + `/api/fuser/refuser/${formateurId}`, null, {
-      headers: this.createAuthorizationHeader()
+      headers: this.createAuhtorizationHeader()
     });
   }
 

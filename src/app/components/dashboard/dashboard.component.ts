@@ -15,29 +15,29 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   ],
 })
 
-export class DashboardComponent {
+// export class DashboardComponent {
 
 
-  message: string;
+//   message: string;
 
-  constructor(
-    private service: JwtService
-  ) { }
+//   constructor(
+//     private service: JwtService
+//   ) { }
 
-  ngOnInit() {
-    this.hello();
-  }
+//   ngOnInit() {
+//     this.hello();
+//   }
 
-  hello() {
-    this.service.hello().subscribe(
-      (response) => {
-        console.log(response);
-        this.message = response.message;
-      }
-    )
-  }
+//   hello() {
+//     this.service.hello().subscribe(
+//       (response) => {
+//         console.log(response);
+//         this.message = response.message;
+//       }
+//     )
+//   }
 
-}
-// =======
-// export class DashboardComponent {}
-// >>>>>>> merge-test
+// }
+
+export class DashboardComponent {}
+
