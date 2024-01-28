@@ -31,7 +31,7 @@ const routes: Routes = [
 
   { path: 'entreprise-form', component: EntrepriseFormComponent },
   { path: 'entreprise-list', component: EntrepriseListComponent },
-  { path: 'planificationt', component: PlanificationComponent },
+  { path: 'planificationt', component: PlanificationComponent },  
   { path: 'accueil', component: AccueilComponent },
 
 ];

@@ -29,6 +29,11 @@ import { AccueilComponent } from './components/accueil/accueil.component';
 import { EntrepriseFormComponent } from './components/entreprise-form/entreprise-form.component';
 import { EntrepriseListComponent } from './components/entreprise-list/entreprise-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav'; 
+import { MatListModule } from '@angular/material/list';
+
 
 @NgModule({
   declarations: [
@@ -65,6 +70,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatSelectModule, // Add MatSelectModule here
     FormsModule, // 
     MatButtonModule,
+    MatToolbarModule,
+    MatIconModule, 
+    MatSidenavModule, 
+    MatListModule,
+    
     
   ],
   providers: [],
