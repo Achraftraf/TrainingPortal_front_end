@@ -1,5 +1,3 @@
-// model.ts
-
 export interface Trainer {
     id: number;
     name: string;
@@ -23,7 +21,7 @@ export interface Trainer {
   }
   
   export interface TrainingSchedule {
-    training: any;
+    training: Training; // Change 'any' to 'Training'
     date: any;
     id: number;
     title: string;
@@ -34,7 +32,6 @@ export interface Trainer {
     category: string;
     city: string;
     enterprise: Enterprise;
-    schedule: TrainingSchedule;
   }
   
   export interface Enterprise {

@@ -8,14 +8,14 @@ import { Trainer, Training } from '../planification/model';
     <h2>Select Trainer and Training</h2>
     <div>
       <label for="trainer">Trainer:</label>
-      <select [(ngModel)]="selectedTrainer" name="trainer">
-        <option *ngFor="let trainer of data.trainers" [value]="trainer">{{ trainer.name }}</option>
+      <select [(ngModel)]="selectedTrainerId" name="trainer">
+        <option *ngFor="let trainer of data.trainers" [value]="trainer.id">{{ trainer.name }}</option>
       </select>
     </div>
     <div>
       <label for="training">Training:</label>
-      <select [(ngModel)]="selectedTraining" name="training">
-        <option *ngFor="let training of data.trainings" [value]="training">{{ training.title }}</option>
+      <select [(ngModel)]="selectedTrainingTitle" name="training">
+        <option *ngFor="let training of data.trainings" [value]="training.title">{{ training.title }}</option>
       </select>
     </div>
     <div>
@@ -25,8 +25,8 @@ import { Trainer, Training } from '../planification/model';
   `,
 })
 export class DateSelectionDialogComponent {
-  selectedTrainer: Trainer | null = null;
-  selectedTraining: Training | null = null;
+  selectedTrainerId: number | null = null;
+  selectedTrainingTitle: string | null = null;
 
   constructor(
     public dialogRef: MatDialogRef<DateSelectionDialogComponent>,
@@ -34,10 +34,14 @@ export class DateSelectionDialogComponent {
   ) {}
 
   save() {
+    // Log the selectedTrainerId and selectedTrainingTitle
+    console.log('Selected Trainer ID:', this.selectedTrainerId);
+    console.log('Selected Training Title:', this.selectedTrainingTitle);
+  
     // Emit selected trainer and training when Save button is clicked
-    this.dialogRef.close({ selectedTrainer: this.selectedTrainer, selectedTraining: this.selectedTraining });
+    this.dialogRef.close({ selectedTrainerId: this.selectedTrainerId, selectedTrainingTitle: this.selectedTrainingTitle });
   }
-
+  
   close() {
     // Close the dialog without emitting any value
     this.dialogRef.close();

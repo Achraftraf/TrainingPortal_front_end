@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { Trainer, Training, TrainingSchedule } from '../components/planification/model';
 
 const BASE_URL = ["http://localhost:8080/"]
@@ -9,11 +9,12 @@ const BASE_URL = ["http://localhost:8080/"]
   providedIn: 'root'
 })
 export class JwtService {
-  getTrainerDetails(trainerId: number): Observable<Training> {
-    return this.http.get<Training>(`${BASE_URL}api/trainers/${trainerId}`, {
+  getTrainerDetails(trainerId: number): Observable<Trainer> {
+    return this.http.get<Trainer>(`${BASE_URL}formateurs/${trainerId}`, {
       headers: this.createAuhtorizationHeader()
     });
   }
+
   getTrainingDetails(trainingId: number): Observable<Training> {
     return this.http.get<Training>(`${BASE_URL}api/trainings/${trainingId}`, {
       headers: this.createAuhtorizationHeader()
@@ -142,10 +143,28 @@ export class JwtService {
   }
   
   scheduleTraining(trainingRequest: any): Observable<any> {
-    return this.http.post(BASE_URL + 'api/training-schedules/schedule', trainingRequest, {
+    const trainerId = trainingRequest.trainer && trainingRequest.trainer.id;
+    const trainingId = trainingRequest.training && trainingRequest.training.id;
+  
+    if (!trainerId || !trainingId) {
+      console.error('Trainer or Training ID not available.');
+      return throwError('Trainer or Training ID not available.');
+    }
+  
+    const updatedTrainingRequest = {
+      date: trainingRequest.date,
+      trainerId: trainerId,
+      enterpriseId: trainingRequest.enterprise?.id || null, // Use null if enterprise is null or undefined
+      trainingId: trainingId,
+    };
+    
+    console.log('Updated Training Request:', updatedTrainingRequest);
+
+    return this.http.post(BASE_URL + 'api/training-schedules/schedule', updatedTrainingRequest, {
       headers: this.createAuhtorizationHeader()
     });
   }
+  
   
 
 }
