@@ -33,17 +33,18 @@ export class PlanificationComponent implements MyInterface {
     this.loadTrainers();
     this.loadTrainings();
 
-    this.calendarOptions = {
-      plugins: [dayGridPlugin, interactionPlugin],
-      editable: true,
-      events: this.loadTrainingSchedules(),
-      dateClick: this.handleDateClick.bind(this),
-      eventClick: this.handleEventClick.bind(this),
-      eventDragStop: this.handleEventDragStop.bind(this),
-      // ... other options
-    };
+    this.loadTrainingSchedules().then(events => {
+      this.calendarOptions = {
+        plugins: [dayGridPlugin, interactionPlugin],
+        editable: true,
+        events: events,
+        dateClick: this.handleDateClick.bind(this),
+        eventClick: this.handleEventClick.bind(this),
+        eventDragStop: this.handleEventDragStop.bind(this),
+        // ... other options
+      };
+    });
   }
-
   loadTrainers() {
     this.jwtService.getTrainers().subscribe(
       (data: Trainer[]) => {
@@ -61,26 +62,33 @@ export class PlanificationComponent implements MyInterface {
     );
   }
 
-  loadTrainingSchedules(): EventSourceInput {
-    return {
-      events: (fetchInfo, successCallback, failureCallback) => {
-        this.jwtService.getTrainingSchedules().subscribe(
-          (data: TrainingSchedule[]) => {
-            const events = data.map((schedule) => ({
-              title: schedule.training?.title || 'Untitled Training',
+  async loadTrainingSchedules(): Promise<EventSourceInput> {
+    return new Promise((resolve, reject) => {
+      this.jwtService.getTrainingSchedules().subscribe(
+        (data: TrainingSchedule[]) => {
+          const events = data.map((schedule) => {
+            const id = schedule.id?.toString() || '';
+            const trainerName = schedule.trainer?.name || 'Unknown Trainer';
+            const trainingTitle = schedule.training?.title || 'Untitled Training';
+  
+            return {
+              title: `${trainingTitle} with ${trainerName}`, // Combine training and trainer names
               start: schedule.date,
-              id: schedule.id.toString(),
+              id: id,
               training: schedule.training,
-            }));
-
-            successCallback(events);
-          },
-          (error) => this.handleError('Error fetching training schedules:', error)
-        );
-      },
-    };
+              trainer: schedule.trainer,
+            };
+          });
+  
+          resolve(events);
+        },
+        (error) => {
+          this.handleError('Error fetching training schedules:', error);
+          reject(error);
+        }
+      );
+    });
   }
-
   handleDateClick(arg: DateClickArg) {
     const dialogRef = this.dialog.open(DateSelectionDialogComponent, {
       width: '400px',
@@ -148,20 +156,46 @@ export class PlanificationComponent implements MyInterface {
     );
   }
   
-  updateCalendarEvents() {
-    this.loadTrainingSchedules();
+  async updateCalendarEvents() {
+    try {
+      const events = await this.loadTrainingSchedules();
+      if (this.fullcalendar) {
+        this.fullcalendar.getApi().removeAllEvents(); // Clear existing events
+        this.fullcalendar.getApi().addEventSource(events); // Add new events
+      }
+      console.log('Calendar events updated successfully:', events);
+    } catch (error) {
+      // Handle error as needed
+      console.error('Error updating calendar events:', error);
+    }
   }
-
   handleEventClick(arg: EventClickArg) {
     console.log(arg);
-    // Optionally, you can update the selected event details here
+    // Your implementation here
   }
-
   handleEventDragStop(arg: EventDragStopArg) {
-    console.log(arg);
-    // Optionally, you can handle event drag stop here
+    const { event } = arg;
+    const { id, start } = event;
+    
+    // Update the date in the backend
+    this.updateEventDate(id, start.toISOString());
+  
+    // Refresh the calendar events
+    this.updateCalendarEvents();
   }
-
+  updateEventDate(eventId: string, newDate: string) {
+    // Format the date as needed by your backend
+    const formattedDate = new Date(newDate).toISOString();
+  
+    // Call your service to update the event date in the backend
+    this.jwtService.updateTrainingScheduleDate(eventId, formattedDate).subscribe(
+      (response) => {
+        console.log('Training schedule date updated successfully:', response);
+      },
+      (error) => this.handleError('Error updating training schedule date:', error)
+    );
+  }
+  
   private handleError(message: string, error: any) {
     console.error(message, error);
     // Handle error as needed

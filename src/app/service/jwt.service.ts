@@ -205,6 +205,27 @@ export class JwtService {
     });
   }
   
+  updateTrainingScheduleDate(eventId: string, newDate: string): Observable<any> {
+    // Convert the string date to a Date object
+    const dateObject = new Date(newDate);
   
+    // Check if the dateObject is a valid date
+    if (isNaN(dateObject.getTime())) {
+      console.error('Invalid date format:', newDate);
+      return throwError('Invalid date format');
+    }
+  
+    // Convert the date to ISO format in Morocco time zone
+    const isoDate = dateObject.toISOString();
+  
+    const updateRequest = {
+      id: eventId,
+      date: isoDate,
+    };
+  
+    return this.http.put(BASE_URL + 'api/training-schedules/update-date', updateRequest, {
+      headers: this.createAuhtorizationHeader(),
+    });
+  }
 
 }

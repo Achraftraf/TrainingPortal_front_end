@@ -21,7 +21,8 @@ export interface Trainer {
   }
   
   export interface TrainingSchedule {
-    training: Training; // Change 'any' to 'Training'
+    training: Training; 
+    trainer: Trainer;   // Change 'any' to 'Training'
     date: any;
     id: number;
     title: string;
