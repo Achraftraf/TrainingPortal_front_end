@@ -18,10 +18,10 @@ export class FormateurComponent implements OnInit {
 
   ngOnInit(): void {
     this.formateurForm = this.fb.group({
-      name: ['', Validators.required],
+      name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-      // Add other fields as needed
+      password: ['', [Validators.required]],
+      skills: ['', [Validators.required]]  
     });
   }
 
