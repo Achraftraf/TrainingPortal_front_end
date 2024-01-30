@@ -57,7 +57,7 @@ import { MatListModule } from '@angular/material/list';
     EntrepriseListComponent,
 
     FormateurInscriptionComponent,
-    FormateurListComponent
+    FormateurListComponent,
 
 
     PlanificationComponent,
