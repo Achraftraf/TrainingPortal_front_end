@@ -13,7 +13,7 @@
             <tr *ngFor="let formateur of formateurs">
                 <td>{{ formateur.name }}</td>
                 <td>{{ formateur.email }}</td>
-                <td>{{ formateur.skills }}</td>
+                <td>{{ formateur.skils }}</td>
                 <td>
                     <button (click)="acceptFormateur(formateur.id)" class="btn btn-success">Accept</button>
                     <button (click)="rejectFormateur(formateur.id)" class="btn btn-danger">Reject</button>
