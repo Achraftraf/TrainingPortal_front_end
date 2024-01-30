@@ -19,6 +19,8 @@ import { FormateurListComponent } from './components/formateur-list/formateur-li
 import { TrainingListComponent } from './components/training-list/training-list.component';
 import { PlanificationComponent } from './components/planification/planification.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
+import { TrainerDashboardComponent } from './components/trainer-dashboard/trainer-dashboard.component';
+import { AssistantDashboardComponent } from './components/assistant-dashboard/assistant-dashboard.component';
 
 
 
@@ -26,6 +28,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'trainer-dashboard', component: TrainerDashboardComponent },
+  { path: 'assistant-dashboard', component: AssistantDashboardComponent },
   // { path: 'training', component: TrainingFormComponent },
   { path: 'user-dashboard', component: UserDashboardComponent },
   { path: 'formateur', component: FormateurComponent },

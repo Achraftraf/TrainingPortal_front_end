@@ -1,5 +1,19 @@
 // app.module.ts
 
+
+import { MatCardModule } from '@angular/material/card';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+
+
+
+import { CommonModule } from '@angular/common';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog'; 
 import { PlanificationComponent } from './components/planification/planification.component';
@@ -14,6 +28,8 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { TrainerDashboardComponent } from './components/trainer-dashboard/trainer-dashboard.component';
+import { AssistantDashboardComponent } from './components/assistant-dashboard/assistant-dashboard.component';
 import { TrainingFormComponent } from './components/training-form/training-form.component';
 import { TrainingListComponent } from './components/training-list/training-list.component';
 
@@ -46,6 +62,8 @@ import { MatListModule } from '@angular/material/list';
     RegisterComponent,
     LoginComponent,
     DashboardComponent,
+    TrainerDashboardComponent,
+    AssistantDashboardComponent,
 
     TrainingFormComponent,
     TrainingListComponent,
@@ -84,6 +102,17 @@ import { MatListModule } from '@angular/material/list';
     MatIconModule, 
     MatSidenavModule, 
     MatListModule,
+
+    CommonModule,
+    MatTableModule,
+    MatInputModule,
+
+
+    MatCardModule,
+    MatFormFieldModule,
+
+    MatPaginatorModule,
+    MatSortModule,
     
     
   ],

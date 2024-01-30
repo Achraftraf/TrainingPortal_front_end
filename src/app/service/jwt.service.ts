@@ -152,7 +152,11 @@ export class JwtService {
     const jwtToken = localStorage.getItem('jwt');
     if (jwtToken) {
       console.log("JWT token found in local storage", jwtToken);
-      return new HttpHeaders().set("Authorization", "Bearer " + jwtToken);
+      // return new HttpHeaders().set("Authorization", "Bearer " + jwtToken);
+      const headers = new HttpHeaders().set("Authorization", "Bearer " + jwtToken);
+      console.log('Request Headers:', headers);
+  
+      return headers;
     } else {
       console.log("JWT token not found in local storage");
     }
@@ -169,6 +173,7 @@ export class JwtService {
   }
   
   scheduleTraining(trainingRequest: any): Observable<any> {
+    
     const trainerId = trainingRequest.trainer && trainingRequest.trainer.id;
     const trainingId = trainingRequest.training && trainingRequest.training.id;
   
@@ -179,18 +184,48 @@ export class JwtService {
   
     const updatedTrainingRequest = {
       date: trainingRequest.date,
-      trainerId: trainerId,
-      enterpriseId: trainingRequest.enterprise?.id || null, // Use null if enterprise is null or undefined
-      trainingId: trainingId,
+      trainer: {
+        id: trainerId,
+      },
+      enterprise: {
+        id: trainingRequest.enterprise?.id || null,
+      },
+      training: {
+        id: trainingId,
+      },
     };
+    
     
     console.log('Updated Training Request:', updatedTrainingRequest);
 
     return this.http.post(BASE_URL + 'api/training-schedules/schedule', updatedTrainingRequest, {
-      headers: this.createAuhtorizationHeader()
+      headers: this.createAuhtorizationHeader(),
+      
+      
     });
   }
   
+  updateTrainingScheduleDate(eventId: string, newDate: string): Observable<any> {
+    // Convert the string date to a Date object
+    const dateObject = new Date(newDate);
   
+    // Check if the dateObject is a valid date
+    if (isNaN(dateObject.getTime())) {
+      console.error('Invalid date format:', newDate);
+      return throwError('Invalid date format');
+    }
+  
+    // Convert the date to ISO format in Morocco time zone
+    const isoDate = dateObject.toISOString();
+  
+    const updateRequest = {
+      id: eventId,
+      date: isoDate,
+    };
+  
+    return this.http.put(BASE_URL + 'api/training-schedules/update-date', updateRequest, {
+      headers: this.createAuhtorizationHeader(),
+    });
+  }
 
 }

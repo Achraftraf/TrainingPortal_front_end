@@ -43,7 +43,13 @@ export class LoginComponent implements OnInit {
           } else if (roles.includes('ROLE_USER')) {
             this.router.navigateByUrl("/user-dashboard");
 
-          } else {
+          }  else if (roles.includes('ROLE_ASSISTANT')) {
+            this.router.navigateByUrl("/assistant-dashboard");
+
+          } else if (roles.includes('ROLE_FORMATEUR')) {
+            this.router.navigateByUrl("/trainer-dashboard");
+
+          }else {
             // Default redirect if role not recognized
             console.warn("Unknown role. Unable to determine the dashboard.");
           }

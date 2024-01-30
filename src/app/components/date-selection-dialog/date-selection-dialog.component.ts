@@ -29,6 +29,7 @@ export class DateSelectionDialogComponent {
     console.log('Selected Trainer ID:', this.selectedTrainerId);
     console.log('Selected Training Title:', this.selectedTrainingTitle);
     this.dialogRef.close({ selectedTrainerId: this.selectedTrainerId, selectedTrainingTitle: this.selectedTrainingTitle });
+    window.location.reload();
   }
   
   close() {
