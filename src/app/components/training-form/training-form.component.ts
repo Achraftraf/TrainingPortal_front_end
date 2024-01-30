@@ -23,6 +23,8 @@ export class TrainingFormComponent implements OnInit {
       cost: ['', [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
       objectives: ['', Validators.required],
       detailedProgram: ['', Validators.required],
+      category: ['', Validators.required],
+      city: ['', Validators.required],
     });
   }
 

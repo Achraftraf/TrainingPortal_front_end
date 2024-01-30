@@ -1,57 +1,52 @@
+<!-- <mat-toolbar color="primary" class="mat-elevation-z8">
+  <button (click)="drawer.toggle()" mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+
+</mat-toolbar> -->
+
+<mat-drawer-container class="drawer-container" autosize>
+  <mat-drawer #drawer opened="true" mode="side" position="start">
+    <!-- Your sidebar content here -->
+    <mat-drawer-container class="drawer-container" autosize>
+      <mat-drawer #drawer opened="true" mode="side" position="start">
+        <mat-nav-list>
+          <mat-list-item>
+            <button routerLink="/training-form" mat-button><mat-icon>dashboard</mat-icon> Go to Training Form</button>
+          </mat-list-item>
+          <mat-list-item>
+            <button routerLink="/training-list" mat-button><mat-icon>home</mat-icon> Go to Training List</button>
+          </mat-list-item>
+          <mat-list-item>
+            <button routerLink="/formateur" mat-button><mat-icon>explore</mat-icon> Add Formateur</button>
+          </mat-list-item>
+          <mat-list-item>
+            <button routerLink="/entreprise-form" mat-button><mat-icon>table</mat-icon> Go to Enterprise Form</button>
+          </mat-list-item>
+          <mat-list-item>
+            <button routerLink="/entreprise-list" mat-button><mat-icon>settings</mat-icon> Go to Enterprise
+              List</button>
+          </mat-list-item>
+          <mat-list-item>
+            <button routerLink="/planificationt" mat-button><mat-icon>help</mat-icon> Planification</button>
+          </mat-list-item>
+          <mat-list-item>
+            <button routerLink="/formateur-list" mat-button><mat-icon>help</mat-icon> formateur-list</button>
+          </mat-list-item>
+        </mat-nav-list>
+      </mat-drawer>
+
+      <div class="dashboard-content">
+        <!-- Your dashboard content goes here -->
+        <router-outlet></router-outlet>
+      </div>
+    </mat-drawer-container>
 
 
-<mat-toolbar color="primary" class="mat-elevation-z8">
-    <button (click)="drawer.toggle()" mat-icon-button>
-      <mat-icon>menu</mat-icon>
-    </button>
+  </mat-drawer>
 
-  </mat-toolbar>    
-  
-  <mat-drawer-container class="drawer-container" autosize>
-    <mat-drawer #drawer opened="true" mode="side" position="start">
-      <!-- Your sidebar content here -->
-      <mat-drawer-container class="drawer-container" autosize>
-        <mat-drawer #drawer opened="true" mode="side" position="start">
-          <mat-nav-list>
-            <mat-list-item>
-              <button routerLink="/training-form" mat-button><mat-icon>dashboard</mat-icon> Go to Training Form</button>
-            </mat-list-item>
-            <mat-list-item>
-              <button routerLink="/training-list" mat-button><mat-icon>home</mat-icon> Go to Training List</button>
-            </mat-list-item>
-            <mat-list-item>
-              <button routerLink="/formateur" mat-button><mat-icon>explore</mat-icon> Add Formateur</button>
-            </mat-list-item>
-            <mat-list-item>
-              <button routerLink="/entreprise-form" mat-button><mat-icon>table</mat-icon> Go to Enterprise Form</button>
-            </mat-list-item>
-            <mat-list-item>
-              <button routerLink="/entreprise-list" mat-button><mat-icon>settings</mat-icon> Go to Enterprise List</button>
-            </mat-list-item>
-            <mat-list-item>
-              <button routerLink="/planificationt" mat-button><mat-icon>help</mat-icon> Planification</button>
-            </mat-list-item>
-                        <mat-list-item>
-              <button routerLink="/formateur-inscription" mat-button><mat-icon>help</mat-icon> formateur-inscription</button>
-            </mat-list-item>
-                            <mat-list-item>
-              <button routerLink="/formateur-list" mat-button><mat-icon>help</mat-icon> formateur-list</button>
-            </mat-list-item>
-          </mat-nav-list>
-        </mat-drawer>
-      
-        <div class="dashboard-content">
-          <!-- Your dashboard content goes here -->
-          <router-outlet></router-outlet>
-        </div>
-      </mat-drawer-container>
-      
-    </mat-drawer>
-  
-    <div class="dashboard-content">
-      <!-- Your dashboard content goes here -->
-      <router-outlet></router-outlet>
-    </div>
-  </mat-drawer-container>
-  
-
+  <div class="dashboard-content">
+    <!-- Your dashboard content goes here -->
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>

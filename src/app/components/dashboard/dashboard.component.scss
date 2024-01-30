@@ -3,9 +3,11 @@
   }
   
   .mat-toolbar {
-    z-index: 2; /* Ensure the toolbar is above the drawer */
+    z-index: 1; /* Ensure the toolbar is above the drawer */
+    background-color: black; /* Set the background color to black */
+    height: auto;
   }
-  
+
   .dashboard-content {
     margin-left: 250px; /* Adjust the margin to match the sidebar width */
     transition: margin-left 0.3s ease;

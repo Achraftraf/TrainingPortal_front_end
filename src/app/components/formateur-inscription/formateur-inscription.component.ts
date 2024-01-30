@@ -43,7 +43,8 @@ export class FormateurInscriptionComponent implements OnInit {
         response => {
           console.log('Response:', response);
           // Handle success response
-          this.router.navigateByUrl('/dashboard');
+          this.router.navigateByUrl('/accueil');
+          alert("request sent " + response.name);
         },
         error => {
           console.error('Error:', error);
