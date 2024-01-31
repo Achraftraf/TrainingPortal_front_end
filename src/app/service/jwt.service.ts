@@ -33,7 +33,7 @@ export class JwtService {
   }
   
   getTrainings(): Observable<Training[]> {
-    return this.http.get<Training[]>(BASE_URL + 'api/trainings/all', {
+    return this.http.get<Training[]>(BASE_URL + 'api/trainingsforall/all', {
       headers: this.createAuhtorizationHeader()
     });
   }
