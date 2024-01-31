@@ -62,8 +62,8 @@ import { JwtService } from 'src/app/service/jwt.service';
 
 export class DashboardComponent {
 
-
   message: string;
+  trainings: any;
 
   constructor(
     private service: JwtService
@@ -71,6 +71,7 @@ export class DashboardComponent {
 
   ngOnInit() {
     this.hello();
+    this.fetchTrainings();
   }
 
   hello() {
@@ -82,6 +83,16 @@ export class DashboardComponent {
     )
   }
 
+  fetchTrainings(): void {
+    this.service.getTrainings().subscribe(
+      (trainings) => {
+        this.trainings = trainings;
+      },
+      (error) => {
+        console.error('Error fetching trainings:', error);
+      }
+    );
+  }
 }
 
 

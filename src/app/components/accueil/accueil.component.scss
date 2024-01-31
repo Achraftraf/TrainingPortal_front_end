@@ -1,15 +1,46 @@
-/* popup.component.scss and date-selection-dialog.component.scss */
+// home.component.scss
 
-@keyframes fadeInOut {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
+.container {
+  margin-top: 20px;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #73abe2;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .card {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
     }
   }
-  
-  div {
-    animation: fadeInOut 0.5s ease-in-out; /* Adjust the duration as needed, e.g., 0.5s for a slower animation */
+
+  .card-body {
+    padding: 20px;
+
+    h5 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #0b71f5;
+      text-align: center;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #555;
+    }
   }
-  
+}
