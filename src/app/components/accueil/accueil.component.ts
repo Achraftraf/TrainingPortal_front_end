@@ -12,6 +12,7 @@ register(arg0: any) {
 throw new Error('Method not implemented.');
 }
   trainings: any[] = []; // Adjust the type based on your training object structure
+  isGoogleFormVisible = false;
 
   constructor(private jwtService: JwtService) {}
 
@@ -29,4 +30,10 @@ throw new Error('Method not implemented.');
       }
     );
   }
+
+  openGoogleForm() {
+    // Open Google Form in a new window
+    window.open('https://docs.google.com/forms/d/e/1FAIpQLSfOhB_Kwubf9fz7Er4a0klaLfzR9jLye0goqUg7w4BSATlaJg/viewform?embedded=true', '_blank');
+}
+
 }
