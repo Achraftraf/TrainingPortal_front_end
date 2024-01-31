@@ -1,43 +1,83 @@
 .drawer-container {
-    height: 100%;
-  }
+  height: 100%;
+}
+
+.mat-toolbar {
+  z-index: 1; /* Ensure the toolbar is above the drawer */
+  background-color: black; /* Set the background color to black */
+  height: auto;
+}
+
+.dashboard-content {
+  margin-left: 250px; /* Adjust the margin to match the sidebar width */
+  transition: margin-left 0.3s ease;
+  height: 100%;
+  overflow: auto;
+
+  .container {
+    margin-top: 20px;
   
-  .mat-toolbar {
-    z-index: 2; /* Ensure the toolbar is above the drawer */
-  }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
   
-  .dashboard-content {
-    margin-left: 250px; /* Adjust the margin to match the sidebar width */
-    transition: margin-left 0.3s ease;
-    height: 100%;
-    overflow: auto;
-  }
+    .card {
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
   
-  .mat-drawer {
-    width: 250px;
-    background-color: #ffffff;
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  
+    .card-body {
+      padding: 20px;
+  
+      h5 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: #0b71f5;
+        text-align: center;
+      }
+  
+      p {
+        font-size: 1rem;
+        color: #555;
+      }
+    }
+  }
+}
+
+.mat-drawer {
+  width: 250px;
+  background-color: #ffffff;
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 8px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #beb3b3;
+  }
+
+  a {
     color: white;
+    text-decoration: none;
+    font-size: 18px;
   }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  li {
-    padding: 8px;
-    text-align: center;
-    transition: background-color 0.3s ease;
-  
-    &:hover {
-      background-color: #beb3b3;
-    }
-  
-    a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-    }
-  }
-  
+}
