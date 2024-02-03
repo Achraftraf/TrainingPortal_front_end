@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { JwtService } from 'src/app/service/jwt.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register-training',
   templateUrl: './register-training.component.html',
@@ -15,7 +15,8 @@ export class RegisterTrainingComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private jwtService: JwtService
+    private jwtService: JwtService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -55,6 +56,8 @@ export class RegisterTrainingComponent implements OnInit {
         (response) => {
           console.log(response);
           alert("Successfully registered for training");
+          
+          this.router.navigate(['/acceil']);
         },
         (error) => {
           console.error('Error registering for training:', error);

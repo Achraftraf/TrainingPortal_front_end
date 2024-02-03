@@ -246,6 +246,12 @@ getFilteredTrainings(category: string, city: string, date: string): Observable<T
     }
   }
   
+  associateFormateur(trainingId: number, formateurId: number, participantId: number): Observable<any> {
+    const body = { participantId: participantId };  // Include the participant ID in the request body
+    return this.http.put(`${BASE_URL}api/trainings/associate-formateur/${trainingId}/${formateurId}`, body, {
+      headers: this.createAuhtorizationHeader()
+    });
+}
 
 
 }
