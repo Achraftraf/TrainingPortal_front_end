@@ -121,25 +121,18 @@ export class JwtService {
 
 
 
-  getFilteredTrainings(category: string, city: string, date: string): Observable<any> {
-    // Create query parameters for filtering
-    let params = new HttpParams();
-    if (category) {
-      params = params.set('category', category);
-    }
-    if (city) {
-      params = params.set('city', city);
-    }
-    if (date) {
-      params = params.set('date', date);
-    }
+getFilteredTrainings(category: string, city: string, date: string): Observable<Training[]> {
+  const params = new HttpParams()
+      .set('category', category || '')
+      .set('city', city || '')
+      .set('date', date || '');
 
-    // Make the API call with query parameters
-    return this.http.get(BASE_URL + 'api/trainings/filtered', {
+  return this.http.get<Training[]>(BASE_URL + 'api/trainings/filtered', {
       headers: this.createAuhtorizationHeader(),
       params: params,
-    });
-  }
+  });
+}
+
 
 
   addFormateur(formateurRequest: any): Observable<any> {
@@ -163,7 +156,6 @@ export class JwtService {
     return null;
   }
   
-
 
 
   logDecodedToken() {
@@ -228,4 +220,17 @@ export class JwtService {
     });
   }
 
+  // registerForTraining(trainingId: number, participantData: any): Observable<any> {
+  //   return this.http.put(`${BASE_URL}api/register-training/${trainingId}`, participantData, {
+  //     headers: this.createAuhtorizationHeader()
+  //   });
+  // }
+  
+  registerForTraining(trainingId: number, participantData: any): Observable<any> {
+    return this.http.put(`${BASE_URL}api/register-training/${trainingId}`, participantData, {
+      headers: this.createAuhtorizationHeader()
+    });
+  }
+
+  
 }

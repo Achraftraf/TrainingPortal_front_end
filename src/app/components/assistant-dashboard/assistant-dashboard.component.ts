@@ -7,6 +7,7 @@ import { MatDrawer } from '@angular/material/sidenav'; // Correct import
   styleUrls: ['./assistant-dashboard.component.scss']
 })
 export class AssistantDashboardComponent {
+  trainings: any;
   @ViewChild('drawer') drawer: MatDrawer;
 
   toggleDrawer() {

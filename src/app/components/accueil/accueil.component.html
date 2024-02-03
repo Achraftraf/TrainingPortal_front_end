@@ -1,21 +1,23 @@
 <!-- home.component.html -->
 <div class="container">
-    <h2>Training Courses</h2>
-    <div class="row">
-      <div *ngFor="let training of trainings" class="col-md-4 mb-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">{{ training.title }}</h5>
-            <p class="card-text"><strong>Objectives:</strong> {{ training.objectives }}</p>
-            <p class="card-text"><strong>Hours:</strong> {{ training.hours }} hours</p>
-            <p class="card-text"><strong>Cost:</strong> {{ training.cost | currency:'USD':'symbol':'1.2-2' }}</p>
-            <p class="card-text"><strong>Detailed Program:</strong> {{ training.detailedProgram }}</p>
-            <p class="card-text"><strong>Category:</strong> {{ training.category }}</p>
-            <p class="card-text"><strong>City:</strong> {{ training.city }}</p>
-            <button class="btn btn-primary m-2" (click)="register(training.id)">Sign Up</button>
-            <button class="btn btn-primary m-2" (click)="openGoogleForm()">Feedback</button>          </div>
+  <h2>Training Courses</h2>
+  <div class="row">
+    <div *ngFor="let training of trainings" class="col-md-4 mb-4">
+      <!-- {{ training | json }} -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ training.title }}</h5>
+          <p class="card-text"><strong>Objectives:</strong> {{ training.objectives }}</p>
+          <p class="card-text"><strong>Hours:</strong> {{ training.hours }} hours</p>
+          <p class="card-text"><strong>Cost:</strong> {{ training.cost | currency:'USD':'symbol':'1.2-2' }}</p>
+          <p class="card-text"><strong>Detailed Program:</strong> {{ training.detailedProgram }}</p>
+          <p class="card-text"><strong>Category:</strong> {{ training.category }}</p>
+          <p class="card-text"><strong>City:</strong> {{ training.city }}</p>
+          <button class="btn btn-primary m-2" (click)="register(training)">Sign Up</button>
+          <button class="btn btn-primary m-2" (click)="openGoogleForm()">Feedback</button>
+          <button class="btn btn-primary m-2" (click)="goToTrainingList()">Go to Training List</button>
         </div>
       </div>
     </div>
+  </div>
 </div>
-

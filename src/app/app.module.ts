@@ -1,6 +1,5 @@
 // app.module.ts
 
-
 import { MatCardModule } from '@angular/material/card';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -53,7 +52,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav'; 
 import { MatListModule } from '@angular/material/list';
-
+import { RegisterTrainingComponent } from './components/register-training/register-training.component';
 
 
 @NgModule({
@@ -77,6 +76,7 @@ import { MatListModule } from '@angular/material/list';
     FormateurInscriptionComponent,
     FormateurListComponent,
 
+    RegisterTrainingComponent,
 
     PlanificationComponent,
  

@@ -21,6 +21,7 @@ import { PlanificationComponent } from './components/planification/planification
 import { AccueilComponent } from './components/accueil/accueil.component';
 import { TrainerDashboardComponent } from './components/trainer-dashboard/trainer-dashboard.component';
 import { AssistantDashboardComponent } from './components/assistant-dashboard/assistant-dashboard.component';
+import { RegisterTrainingComponent } from './components/register-training/register-training.component';
 
 
 
@@ -36,7 +37,7 @@ const routes: Routes = [
   { path: 'training-form', component: TrainingFormComponent },
   { path: 'training-list', component: TrainingListComponent, },
 
-  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+  { path: '', redirectTo: '/register', pathMatch: 'full' },
 
   { path: 'entreprise-form', component: EntrepriseFormComponent },
   { path: 'entreprise-list', component: EntrepriseListComponent },
@@ -46,8 +47,11 @@ const routes: Routes = [
 
   { path: 'planificationt', component: PlanificationComponent },  
   { path: 'accueil', component: AccueilComponent },
+  // { path: 'api/register-training/:id', component: RegisterTrainingComponent },
 
 
+  { path: '', component: AccueilComponent },
+  { path: 'register-training/:id', component: RegisterTrainingComponent },
 ];
 
 @NgModule({
