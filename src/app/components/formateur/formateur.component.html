@@ -1,0 +1,45 @@
+<!-- formateur.component.html -->
+
+<div class="container">
+    <h2>Add Formateur</h2>
+    <form [formGroup]="formateurForm" (ngSubmit)="submitFormateurForm()">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" formControlName="name" />
+            <div *ngIf="formateurForm.get('name').hasError('required') && formateurForm.get('name').touched">
+                Name is required.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" formControlName="email" />
+            <div *ngIf="formateurForm.get('email').hasError('required') && formateurForm.get('email').touched">
+                Email is required.
+            </div>
+            <div *ngIf="formateurForm.get('email').hasError('email') && formateurForm.get('email').touched">
+                Invalid email format.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="skills">Skills</label>
+            <input type="text" class="form-control" id="skills" formControlName="skills" />
+            <div *ngIf="formateurForm.get('skills').hasError('required') && formateurForm.get('skills').touched">
+                Skills are required.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" formControlName="password" />
+            <div *ngIf="formateurForm.get('password').hasError('required') && formateurForm.get('password').touched">
+                Password is required.
+            </div>
+        </div>
+
+        <!-- Add other fields as needed -->
+
+        <button type="submit" class="btn btn-primary" [disabled]="formateurForm.invalid">Add Formateur</button>
+    </form>
+</div>

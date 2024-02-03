@@ -20,23 +20,41 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      email: ['', Validators.required, Validators.email],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
-    })
+    });
   }
 
-  submitForm() {
+ submitForm() {
     this.service.login(this.loginForm.value).subscribe(
       (response) => {
         console.log(response);
         if (response.jwt != null) {
-          alert("Hello, Your token is " + response.jwt);
           const jwtToken = response.jwt;
           localStorage.setItem('jwt', jwtToken);
-          this.router.navigateByUrl("/dashboard");
+
+          // Extract roles from the JWT token
+          const roles = this.service.getRolesFromToken(jwtToken);
+          console.log(roles)
+
+          // Redirect based on roles
+          if (roles.includes('ROLE_ADMIN')) {
+            this.router.navigateByUrl("/dashboard");
+          } else if (roles.includes('ROLE_USER')) {
+            this.router.navigateByUrl("/accueil");
+
+          }  else if (roles.includes('ROLE_ASSISTANT')) {
+            this.router.navigateByUrl("/assistant-dashboard");
+
+          } else if (roles.includes('ROLE_FORMATEUR')) {
+            this.router.navigateByUrl("/trainer-dashboard");
+
+          }else {
+            // Default redirect if role not recognized
+            console.warn("Unknown role. Unable to determine the dashboard.");
+          }
         }
       }
-    )
+    );
   }
-
 }

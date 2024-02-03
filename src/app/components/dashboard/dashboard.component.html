@@ -1,9 +1,77 @@
-<h1>{{message}}</h1>
-<a routerLink="/training-form">Go to Training Form</a>
-<br>
-<a routerLink="/entreprise-form">Go to entreprise Form</a>
-<br>
-<a routerLink="/entreprise-list">Go to entreprise list</a>
+
+<mat-toolbar color="primary" class="mat-elevation-z8">
+  <button (click)="drawer.toggle()" mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+
+</mat-toolbar>
+
+<mat-drawer-container class="drawer-container" autosize>
+  <mat-drawer #drawer opened="true" mode="side" position="start">
+    <!-- Your sidebar content here -->
+    <mat-drawer-container class="drawer-container" autosize>
+      <mat-drawer #drawer opened="true" mode="side" position="start">
+        <mat-nav-list>
+          <mat-list-item>
+            <button routerLink="/training-form" mat-button><mat-icon>dashboard</mat-icon> Training Form</button>
+          </mat-list-item>
+          <mat-list-item>
+            <button routerLink="/training-list" mat-button><mat-icon>home</mat-icon> Training List</button>
+          </mat-list-item>
+          <mat-list-item>
+            <button routerLink="/formateur" mat-button><mat-icon>explore</mat-icon> Add Formateur</button>
+          </mat-list-item>
+          <mat-list-item>
+            <button routerLink="/entreprise-form" mat-button><mat-icon>table</mat-icon> Enterprise Form</button>
+          </mat-list-item>
+          <mat-list-item>
+            <button routerLink="/entreprise-list" mat-button><mat-icon>settings</mat-icon> Enterprise
+              List</button>
+          </mat-list-item>
+          <mat-list-item>
+            <button routerLink="/planificationt" mat-button><mat-icon>help</mat-icon> Planification</button>
+          </mat-list-item>
+          <mat-list-item>
+            <button routerLink="/formateur-list" mat-button><mat-icon>help</mat-icon> formateur-list</button>
+          </mat-list-item>
+          <mat-list-item>
+            <button routerLink="/participant-list" mat-button><mat-icon>help</mat-icon> participant-list</button>
+          </mat-list-item>
+        </mat-nav-list>
+      </mat-drawer>
+
+      <div class="dashboard-content">
+        <!-- Your dashboard content goes here -->
+        <router-outlet></router-outlet>
+      </div>
+    </mat-drawer-container>
 
 
-<router-outlet></router-outlet>
+  </mat-drawer>
+
+  <div class="dashboard-content">
+    <!-- Your dashboard content goes here -->
+    <router-outlet></router-outlet>
+    <!-- home.component.html -->
+    <div class="container">
+      <div class="row">
+        <div *ngFor="let training of trainings" class="col-md-4 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ training.title }}</h5>
+              <p class="card-text"><strong>Objectives:</strong> {{ training.objectives }}</p>
+              <p class="card-text"><strong>Hours:</strong> {{ training.hours }} hours</p>
+              <p class="card-text"><strong>Cost:</strong> {{ training.cost | currency:'USD':'symbol':'1.2-2' }}</p>
+              <p class="card-text"><strong>Detailed Program:</strong> {{ training.detailedProgram }}</p>
+              <p class="card-text"><strong>Category:</strong> {{ training.category }}</p>
+              <p class="card-text"><strong>City:</strong> {{ training.city }}</p>
+              <!-- Add more details as needed -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</mat-drawer-container>
+

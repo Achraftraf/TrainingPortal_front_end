@@ -1,0 +1,49 @@
+<!-- participants.component.html -->
+<div class="container">
+    <h2>List of Participants</h2>
+    <br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Training ID</th>
+                <th>Participant ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date of Birth</th>
+                <th>City</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Formateur</th>
+                <th>Action</th>
+                <th>Associated Formateur</th> <!-- New column for displaying associated formateur -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let participant of participants">
+                <td>{{ participant.training_id !== undefined ? participant.training_id : 'N/A' }}</td>
+                <td>{{ participant.participant.id }}</td>
+                <td>{{ participant.participant.firstName }}</td>
+                <td>{{ participant.participant.lastName }}</td>
+                <td>{{ participant.participant.dateOfBirth }}</td>
+                <td>{{ participant.participant.city }}</td>
+                <td>{{ participant.participant.email }}</td>
+                <td>{{ participant.participant.phoneNumber }}</td>
+                <td>
+                    <mat-select [(ngModel)]="participant.selectedTrainer">
+                        <mat-option *ngFor="let trainer of trainers" [value]="trainer.id">{{ trainer.name }}</mat-option>
+                    </mat-select>
+                </td>
+                <td>
+                    <button mat-raised-button (click)="associateFormateur(participant.training_id, participant.selectedTrainer, participant.participant.id)">Associate Formateur</button>
+                </td>
+                <!-- Display associated formateur ID with training_id -->
+<!-- Display associated formateur ID with training_id -->
+<td>{{ participant.associatedFormateurId !== undefined ? participant.associatedFormateur.name +  + participant.training_id : 'N/A' }}</td>
+
+
+
+                <!-- Display associated formateur ID -->
+            </tr>
+        </tbody>
+    </table>
+</div>

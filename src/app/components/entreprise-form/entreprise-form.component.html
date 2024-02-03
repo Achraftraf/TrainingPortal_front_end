@@ -1,10 +1,10 @@
 <!-- entreprise.component.html -->
 
 <div class="container">
-    <h2>Ajouter une entreprise</h2>
+    <h2>Add a Company</h2>
     <form [formGroup]="entrepriseForm" (ngSubmit)="submitEntrepriseForm()">
         <div class="form-group">
-            <label for="nom">Nom de l'entreprise</label>
+            <label for="nom">Company Name</label>
             <input type="text" class="form-control" id="nom" formControlName="nom" />
             <div *ngIf="entrepriseForm.get('nom').hasError('required') && entrepriseForm.get('nom').touched">
                 Nom de l'entreprise est requis.
@@ -12,7 +12,7 @@
         </div>
 
         <div class="form-group">
-            <label for="adresse">Adresse de l'entreprise</label>
+            <label for="adresse">Company address</label>
             <input type="text" class="form-control" id="adresse" formControlName="adresse" />
             <div *ngIf="entrepriseForm.get('adresse').hasError('required') && entrepriseForm.get('adresse').touched">
                 Adresse de l'entreprise est requis.
@@ -20,7 +20,7 @@
         </div>
 
         <div class="form-group">
-            <label for="telephone">Téléphone de l'entreprise</label>
+            <label for="telephone">Company phone</label>
             <input type="number" class="form-control" id="telephone" formControlName="telephone" />
             <div
                 *ngIf="entrepriseForm.get('telephone').hasError('required') && entrepriseForm.get('telephone').touched">
@@ -29,17 +29,18 @@
         </div>
 
         <div class="form-group">
-            <label for="url">URL de l'entreprise</label>
+            <label for="url">Company URL</label>
             <input type="text" class="form-control" id="url" formControlName="url" />
             <!-- Add any additional validation messages if needed -->
         </div>
 
         <div class="form-group">
-            <label for="email">Email de l'entreprise</label>
+            <label for="email">Company email</label>
             <input type="text" class="form-control" id="email" formControlName="email" />
             <!-- Add any additional validation messages if needed -->
         </div>
 
-        <button type="submit" class="btn btn-primary" [disabled]="entrepriseForm.invalid">Ajouter Entreprise</button>
+        <br>
+        <button type="submit" class="btn btn-primary">Add</button>
     </form>
 </div>

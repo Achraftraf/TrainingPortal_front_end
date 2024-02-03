@@ -1,0 +1,45 @@
+<!-- training-list.component.html -->
+<div class="container">
+    <h2>List of Trainings</h2>
+  
+    <!-- Add a form for filtering -->
+    <form (submit)="filterTrainings()">
+      <label for="category">Category:</label>
+      <input type="text" id="category" [(ngModel)]="category" name="category">
+  
+      <label for="city">City:</label>
+      <input type="text" id="city" [(ngModel)]="city" name="city">
+  
+      <label for="date">Date:</label>
+      <input type="date" id="date" [(ngModel)]="date" name="date">
+  
+      <button type="submit">Filter</button>
+    </form>
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Hours</th>
+          <th>Cost</th>
+          <th>Objectives</th>
+          <th>Detailed Program</th>
+          <th>Category</th>
+          <th>City</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let training of filteredTrainings">
+          <td>{{ training.title }}</td>
+          <td>{{ training.hours }}</td>
+          <td>{{ training.cost }}</td>
+          <td>{{ training.objectives }}</td>
+          <td>{{ training.detailedProgram }}</td>
+          <td>{{ training.category }}</td>
+          <td>{{ training.city }}</td>
+          <td>{{ training.schedule?.date }}</td> <!-- Use safe navigation operator (?) to avoid errors if schedule is undefined -->
+        </tr>
+      </tbody>
+    </table>
+</div>

@@ -1,0 +1,50 @@
+<mat-toolbar color="primary" class="mat-elevation-z8">
+    <button (click)="toggleDrawer()" mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+  
+  <mat-drawer-container class="drawer-container" autosize>
+    <mat-drawer #drawer opened="true" mode="side" position="start">
+      <!-- Your sidebar content here -->
+      <mat-nav-list>
+        <mat-list-item>
+          <button routerLink="/training-list" mat-button><mat-icon>home</mat-icon> Training List</button>
+        </mat-list-item>
+        <!-- Add more menu items as needed -->
+      </mat-nav-list>
+    </mat-drawer>
+  
+    <div class="dashboard-content">
+      <!-- Your dashboard content goes here -->
+      <router-outlet></router-outlet>
+      <!-- Additional content specific to TrainerDashboardComponent -->
+
+                <div class="dashboard-content">
+                    <!-- Your dashboard content goes here -->
+                    <router-outlet></router-outlet>
+                    <!-- home.component.html -->
+                    <div class="container">
+                      <div class="row">
+                        <div *ngFor="let training of trainings" class="col-md-4 mb-4">
+                          <div class="card">
+                            <div class="card-body">
+                              <h5 class="card-title">{{ training.title }}</h5>
+                              <p class="card-text"><strong>Objectives:</strong> {{ training.objectives }}</p>
+                              <p class="card-text"><strong>Hours:</strong> {{ training.hours }} hours</p>
+                              <p class="card-text"><strong>Cost:</strong> {{ training.cost | currency:'USD':'symbol':'1.2-2' }}</p>
+                              <p class="card-text"><strong>Detailed Program:</strong> {{ training.detailedProgram }}</p>
+                              <p class="card-text"><strong>Category:</strong> {{ training.category }}</p>
+                              <p class="card-text"><strong>City:</strong> {{ training.city }}</p>
+                              <!-- Add more details as needed -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                
+                  </div>
+                </div>
+       
+  </mat-drawer-container>
+  

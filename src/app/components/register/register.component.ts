@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { JwtService } from 'src/app/service/jwt.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private service: JwtService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -41,6 +43,7 @@ export class RegisterComponent implements OnInit {
       (response) => {
         if (response.id != null) {
           alert("Hello " + response.name);
+          this.router.navigateByUrl('/login');
         }
       }
     )
