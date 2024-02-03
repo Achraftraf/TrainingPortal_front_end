@@ -26,13 +26,12 @@ export class AccueilComponent implements OnInit {
     if (training && training.participants && Array.isArray(training.participants)) {
       // Filter out participants without a valid id
       const validParticipants = training.participants.filter(participant => participant && participant.id);
-  
       if (training.id && (validParticipants.length > 0 || training.participants.length === 0)) {
-        // Navigate only if training.id is defined and there are valid participants or the array is empty
+        // Pass the training ID when navigating to the registration form
         this.router.navigate(['/register-training', training.id]);
-      } else {
+    } else {
         console.error('Invalid training object or training id is undefined');
-      }
+    }
     } else {
       console.error('Invalid training object or participants array is undefined');
       console.log('Full training object:', training);

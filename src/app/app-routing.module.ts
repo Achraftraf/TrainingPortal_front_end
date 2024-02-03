@@ -22,6 +22,7 @@ import { AccueilComponent } from './components/accueil/accueil.component';
 import { TrainerDashboardComponent } from './components/trainer-dashboard/trainer-dashboard.component';
 import { AssistantDashboardComponent } from './components/assistant-dashboard/assistant-dashboard.component';
 import { RegisterTrainingComponent } from './components/register-training/register-training.component';
+import { ParticipantsComponent } from './components/participants/participants.component';
 
 
 
@@ -44,6 +45,7 @@ const routes: Routes = [
 
   { path: 'formateur-inscription', component: FormateurInscriptionComponent },
   { path: 'formateur-list', component: FormateurListComponent },
+  { path: 'participant-list', component: ParticipantsComponent },
 
   { path: 'planificationt', component: PlanificationComponent },  
   { path: 'accueil', component: AccueilComponent },

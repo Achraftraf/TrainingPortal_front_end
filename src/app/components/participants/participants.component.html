@@ -1,0 +1,31 @@
+<!-- participants.component.html -->
+<div class="container">
+    <h2>List of Participants</h2>
+    <br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Training ID</th>
+                <th>Participant ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date of Birth</th>
+                <th>City</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let participant of participants">
+                <td>{{ participant.training_id !== undefined ? participant.training_id : 'N/A' }}</td> <!-- Display Training ID or 'N/A' if not defined -->
+                <td>{{ participant.participant.id }}</td> <!-- Display Participant ID -->
+                <td>{{ participant.participant.firstName }}</td>
+                <td>{{ participant.participant.lastName }}</td>
+                <td>{{ participant.participant.dateOfBirth }}</td>
+                <td>{{ participant.participant.city }}</td>
+                <td>{{ participant.participant.email }}</td>
+                <td>{{ participant.participant.phoneNumber }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

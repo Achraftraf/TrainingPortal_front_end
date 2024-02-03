@@ -227,10 +227,25 @@ getFilteredTrainings(category: string, city: string, date: string): Observable<T
   // }
   
   registerForTraining(trainingId: number, participantData: any): Observable<any> {
-    return this.http.put(`${BASE_URL}api/register-training/${trainingId}`, participantData, {
+    return this.http.put(`${BASE_URL}register-training/${trainingId}`, participantData, {
       headers: this.createAuhtorizationHeader()
     });
   }
 
+  getParticipants(trainingId?: number): Observable<any[]> {
+    // If a trainingId is provided, fetch participants for that specific training
+    if (trainingId !== undefined) {
+      return this.http.get<any[]>(`${BASE_URL}api/trainings/participants/${trainingId}`, {
+        headers: this.createAuhtorizationHeader()
+      });
+    } else {
+      // If no trainingId is provided, fetch participants for all trainings
+      return this.http.get<any[]>(`${BASE_URL}api/trainings/all/participants`, {
+        headers: this.createAuhtorizationHeader()
+      });
+    }
+  }
   
+
+
 }

@@ -7,7 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 
-
+import { ParticipantsComponent } from './components/participants/participants.component';
 
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
@@ -83,6 +83,7 @@ import { RegisterTrainingComponent } from './components/register-training/regist
     DateSelectionDialogComponent,
     AccueilComponent,
     PopupComponent,
+    ParticipantsComponent,
 
   ],
   imports: [
